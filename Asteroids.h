@@ -10,7 +10,7 @@
 #include <glm/vec2.hpp>
 #include <iostream>
 
-namespace aster {
+namespace asteroids {
     static const std::vector<glm::vec2> ASTEROID_SMALL = {
             glm::vec2{5, 5},
             glm::vec2{5, -5},
@@ -32,20 +32,18 @@ namespace aster {
             glm::vec2{-sqrt(2) * 5, -sqrt(2) * 5}
     };
 
-    static const double BULLET_SPEED = 5.0;
-
     class Game;
 
     class Item {
         const Game &game;
         const std::vector<glm::vec2>& outline;
-        double radius_ {0};  // TODO
+        double radius_ {0};
         double rotation_ {0};
-        double vLimit{0};
-        int lifeTime{-1};
-        glm::vec2 position_{0, 0};
-        glm::vec2 speed_{0, 0};
-        glm::vec2 acceleration_{0, 0};
+        double vLimit {0};
+        int lifeTime {-1};
+        glm::vec2 position_ {0, 0};
+        glm::vec2 speed_ {0, 0};
+        glm::vec2 acceleration_ {0, 0};
     public:
         Item(Game& g, const std::vector<glm::vec2>& o);
 
@@ -75,7 +73,7 @@ namespace aster {
     };
 
     class Ship : public Item {
-        int shootDelay{10};
+        int shootDelay_ {10};
     public:
         Ship(Game &g) : Item{g, SHIP} {
 
