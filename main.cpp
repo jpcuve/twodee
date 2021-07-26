@@ -1,7 +1,7 @@
 #include <iostream>
 #include "TutorialApp.h"
 #include <glm/glm.hpp>
-#include "Asteroids.cpp"
+#include "Asteroids.h"
 
 int main() {
     std::cout << "Hello, World! " << std::endl;
