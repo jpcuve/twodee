@@ -9,6 +9,9 @@
 #include <cmath>
 #include <glm/vec2.hpp>
 #include <iostream>
+#include "sdl/App.h"
+#include "sdl/Window.h"
+
 
 namespace asteroids {
     static const std::vector<glm::vec2> ASTEROID_SMALL = {
@@ -74,10 +77,13 @@ namespace asteroids {
 
     class Ship : public Item {
         int shootDelay_ {10};
+        double edge_ {800};
     public:
         Ship(Game &g) : Item{g, SHIP} {
 
         }
+
+        inline double edge() { return edge_; }
 
         void info() override {
             std::cout << "Ship radius: " << radius() << std::endl;
@@ -105,7 +111,19 @@ namespace asteroids {
         inline std::vector<Item*> items() { return items_; }
         inline Ship &ship() { return ships[0]; }
         inline double bulletSpeed(){ return bulletSpeed_; }
+        void update(uint frame);
     };
+
+    class AsteroidsApp: public App {
+        Window w;
+        Renderer renderer;
+        Font font;
+        Game game;
+    public:
+        void init() override;
+        void loop(uint32_t frame) override;
+    };
+
 }
 
 #endif //TWODEE_ASTEROIDS_H
