@@ -45,7 +45,7 @@ void asteroids::AsteroidsApp::loop(uint frame) {
     renderer.setDrawColor(0x80, 0x80, 0x80, 0xFF);
     renderer.clear();
     renderer.setDrawColor(0xFF, 0, 0, 0xFF);
-    renderer.draw(Point(10, 250), "Hello world!", font);
+    renderer.draw({10, 250}, "Hello world!", font);
 /*
     renderer.draw(Point {10, 10});
     renderer.draw(Point{10, 10}, Point{200, 100});

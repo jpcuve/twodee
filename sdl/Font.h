@@ -8,7 +8,7 @@
 
 #include <string>
 #include <SDL_ttf.h>
-#include "Geometry.h"
+#include <glm/glm.hpp>
 
 class Font {
 private:
@@ -24,7 +24,7 @@ public:
     TTF_Font *getHandle(){ return handle; }
     int getPointSize(){ return pointSize; }
     static Font fromFile(std::string path, int ptsize);
-    Dimension sizeText(std::string text);
+    glm::ivec2 sizeText(std::string text);
 };
 
 

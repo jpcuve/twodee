@@ -21,9 +21,9 @@ Font Font::fromFile(std::string path, int ptsize) {
     return Font {f, ptsize};
 }
 
-Dimension Font::sizeText(std::string text) {
-    Dimension d;
-    if (TTF_SizeText(handle, text.c_str(), &d.w, &d.h) != 0){
+glm::ivec2 Font::sizeText(std::string text) {
+    glm::ivec2 d;
+    if (TTF_SizeText(handle, text.c_str(), &d.x, &d.y) != 0){
         throw std::runtime_error("Cannot size text");
     }
     return d;
